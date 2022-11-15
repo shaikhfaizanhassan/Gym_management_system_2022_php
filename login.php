@@ -15,7 +15,7 @@
     <!-- PAGE LEVEL STYLES-->
     <link href="./assets/css/pages/auth-light.css" rel="stylesheet" />
 </head>
-
+<div class="vic"></div>
 <body class="bg-silver-300">
     <div class="content">
         <div class="brand">
