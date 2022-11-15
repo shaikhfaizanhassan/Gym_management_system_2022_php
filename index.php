@@ -16,7 +16,7 @@
     <link href="assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 </head>
-
+<div class="box"></div>
 <body class="fixed-navbar">
     <div class="page-wrapper">
         <!-- START HEADER-->
