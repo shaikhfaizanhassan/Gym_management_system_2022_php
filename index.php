@@ -108,10 +108,10 @@
                             <span class="nav-label">Table</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Add Table</a>
+                                <a href="index.php?addTable">Add Table</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">View Table</a>
+                                <a href="index.php?viewTable">View Table</a>
                             </li>
                         
                         </ul>
@@ -202,6 +202,14 @@
                     else if(isset($_GET['viewCategory']))
                     {
                         include 'viewCategory.php';
+                    }
+                    else if(isset($_GET['addTable']))
+                    {
+                        include 'addTable.php';
+                    }
+                    else if(isset($_GET['viewTable']))
+                    {
+                        include 'viewTable.php';
                     }
                     else{
                         echo ' <div class="page-content fade-in-up">
