@@ -12,8 +12,11 @@
     <link href="./assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="./assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-    <!-- THEME STYLES-->
+    <!-- THEME STYLES-->  
+
     <link href="assets/css/main.min.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+
     <!-- PAGE LEVEL STYLES-->
 </head>
 <div class="box"></div>
@@ -75,7 +78,7 @@
                         <img src="./assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong">James Brown</div><small>Administrator</small></div>
+                        <div class="font-strong">Admin</div><small>Administrator</small></div>
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
@@ -86,13 +89,13 @@
                    
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Category</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="index.php?addCategory">Add Category</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
+                                <a href="index.php?viewCategory">View Category</a>
                             </li>
                         
                         </ul>
@@ -102,13 +105,13 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Table</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Add Table</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
+                                <a href="form_advanced.html">View Table</a>
                             </li>
                         
                         </ul>
@@ -116,28 +119,13 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Tax</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Add Tax</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
-                            </li>
-                        
-                        </ul>
-                    </li>
-                    
-
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="form_basic.html">Basic Forms</a>
-                            </li>
-                            <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
+                                <a href="form_advanced.html">View Tax</a>
                             </li>
                         
                         </ul>
@@ -146,13 +134,13 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Add Product</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
+                                <a href="form_advanced.html">View Product</a>
                             </li>
                         
                         </ul>
@@ -161,13 +149,13 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">User</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Add User</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
+                                <a href="form_advanced.html">View User</a>
                             </li>
                         
                         </ul>
@@ -176,15 +164,24 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Order</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Add Order</a>
                             </li>
-                            <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
-                            </li>
+
                         
+                        </ul>
+                    </li>
+                    
+
+                    <li>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">Billing</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                            <li>
+                                <a href="form_basic.html">View Billing</a>
+                            </li>
                         </ul>
                     </li>
                     
@@ -195,8 +192,19 @@
         </nav>
         <!-- END SIDEBAR-->
         <div class="content-wrapper">
+
             <!-- START PAGE CONTENT-->
-            <div class="page-content fade-in-up">
+                <?php  
+                    if(isset($_GET['addCategory']))
+                    {
+                        include 'addCategory.php';
+                    }
+                    else if(isset($_GET['viewCategory']))
+                    {
+                        include 'viewCategory.php';
+                    }
+                    else{
+                        echo ' <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-success color-white widget-stat">
@@ -235,12 +243,9 @@
                         </div>
                     </div>
                 </div>
-           
-           
-              
-              
-             
-            </div>
+            </div>';
+                    }
+                ?>
             <!-- END PAGE CONTENT-->
           
         </div>
@@ -259,6 +264,11 @@
     <script src="assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="./assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
 </body>
-
 </html>
