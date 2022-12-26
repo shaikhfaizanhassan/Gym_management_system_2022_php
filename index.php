@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>GYM Management System</title>
+    <title>Restaurent Management System</title>
     <!-- GLOBAL MAINLY STYLES-->
     <link href="./assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -117,30 +117,17 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Tax</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="form_basic.html">Add Tax</a>
-                            </li>
-                            <li>
-                                <a href="form_advanced.html">View Tax</a>
-                            </li>
-                        
-                        </ul>
-                    </li>
-                    
+              
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Add Product</a>
+                                <a href="index.php?AddProduct">Add Product</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">View Product</a>
+                                <a href="index.php?viewProduct">View Product</a>
                             </li>
                         
                         </ul>
@@ -149,17 +136,18 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">User</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Staff</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Add User</a>
+                                <a href="index.php?addstaf">Add Staff</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">View User</a>
+                                <a href="index.php?ViewUser">View Staff</a>
                             </li>
                         
                         </ul>
                     </li>
+
                     
 
                     <li>
@@ -167,7 +155,7 @@
                             <span class="nav-label">Order</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Add Order</a>
+                                <a href="index.php?AddOrder">Add Order</a>
                             </li>
 
                         
@@ -184,7 +172,24 @@
                             </li>
                         </ul>
                     </li>
-                    
+                    <li>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">Report</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                            <li>
+                                <a href="form_basic.html">View Report</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">Company Info</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                            <li>
+                                <a href="form_basic.html">Company Info</a>
+                            </li>
+                        </ul>
+                    </li>
                     
 
                 </ul>
@@ -211,6 +216,29 @@
                     {
                         include 'viewTable.php';
                     }
+                    else if(isset($_GET['AddProduct']))
+                    {
+                        include 'AddProduct.php';
+                    }
+                    else if(isset($_GET['viewProduct']))
+                    {
+                        include 'viewProduct.php';
+                    }
+
+                    else if(isset($_GET['addstaf']))
+                    {
+                        include 'addstaf.php';
+                    }
+
+                    else if(isset($_GET['ViewUser']))
+                    {
+                        include 'ViewUser.php';
+                    }
+                    else if(isset($_GET['AddOrder']))
+                    {
+                        include 'AddOrder.php';
+                    }
+                    
                     else{
                         echo ' <div class="page-content fade-in-up">
                 <div class="row">
