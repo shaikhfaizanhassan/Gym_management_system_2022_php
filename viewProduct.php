@@ -1,3 +1,6 @@
+<?php 
+    include('connection.php');
+?>
 <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
@@ -29,21 +32,31 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                            <?php 
+                                    $query = mysqli_query($con,"SELECT pid,Name,price,cname,Status,Image FROM product 
+                                    INNER JOIN 
+                                    category
+                                    ON
+                                    product.Categroy_id = category.cid;");
+                                    while($row = mysqli_fetch_array($query))
+                                    {
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Salad</td>
-                                    <td>Salad</td>
-                                    <td>Salad</td>
-                                    <td>Salad</td>
-                                    <td>Salad</td>
+                                    <td><?php echo $row[0] ?></td>
+                                    <td><?php echo $row[1] ?></td>
+                                    <td><?php echo $row[2] ?></td>
+                                    <td><?php echo $row[3] ?></td>
+                                    <td><?php echo $row[4] ?></td>
+                                    <td><img src="Productimages/<?php echo $row[5] ?>" width="100" height="40" alt=""></td>
                                     
+
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                        
+                                        <a href="#" class="btn btn-info btn-sm">Detail</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>          
                                     </td>
-
                                 </tr>
+                                <?php } ?>
                                 
                             </tbody>
                         </table>

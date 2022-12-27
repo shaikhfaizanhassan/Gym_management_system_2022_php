@@ -1,3 +1,3 @@
 <?php 
-	$con = mysqli_connect("localhost","root","","restDatabase");
+	$con = mysqli_connect("localhost","root","","restaurentdb");
  ?>

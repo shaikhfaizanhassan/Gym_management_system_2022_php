@@ -1,3 +1,6 @@
+<?php 
+    include('connection.php');
+?>
    <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
@@ -22,18 +25,21 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                                <?php 
+                                    $query = mysqli_query($con,"select * from Category");
+                                    while($row = mysqli_fetch_array($query))
+                                    {
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Salad</td>
+                                    <td><?php echo $row[0] ?></td>
+                                    <td><?php echo $row[1] ?></td>
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm">Edit</a>
                                         <a href="#" class="btn btn-info btn-sm">Detail</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                        
+                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>          
                                     </td>
-
                                 </tr>
-                                
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

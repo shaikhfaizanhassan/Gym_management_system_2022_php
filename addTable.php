@@ -1,4 +1,7 @@
-            <br>
+<?php 
+    include('connection.php');
+?>
+<br>
                 <div class="col-md-12" >
                         <div class="ibox" >
                             <div class="ibox-head" >
@@ -13,7 +16,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Table</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Enter Table">
+                                            <input class="form-control" name="table" type="text" placeholder="Enter Table">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -25,7 +28,16 @@
                                 <?php  
                                     if(isset($_POST['btn']))
                                     {
-                                        echo "<script>alert('testing')</script>";
+                                        $table = $_POST['table'];
+                                        $query = mysqli_query($con,"insert into table_tb (table_name) values ('$table')");
+                                        if($query>0)
+                                        {
+                                            echo '<script>swal("Save", "Table Save Successfuly", "success");</script>';
+                                        }
+                                        else
+                                        {
+                                            echo "<h1>Failed</h1>";
+                                        }
                                     }
                                 ?>
                             </div>

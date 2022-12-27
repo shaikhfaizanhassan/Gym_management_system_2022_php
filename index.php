@@ -16,6 +16,8 @@
 
     <link href="assets/css/main.min.css" rel="stylesheet" />
     <link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
     <!-- PAGE LEVEL STYLES-->
 </head>
@@ -177,7 +179,7 @@
                             <span class="nav-label">Report</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">View Report</a>
+                                <a href="index.php?ViewReport">View Report</a>
                             </li>
                         </ul>
                     </li>
@@ -238,6 +240,14 @@
                     {
                         include 'AddOrder.php';
                     }
+
+                    else if(isset($_GET['ViewReport']))
+                    {
+                        include 'ViewReport.php';
+                    }
+
+
+                    
                     
                     else{
                         echo ' <div class="page-content fade-in-up">
