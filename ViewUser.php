@@ -31,8 +31,6 @@
                                     <th>NIC</th>
                                     <th>Image</th>
                                     <th>Action</th>
-                                    
-
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -49,8 +47,6 @@
                                     <td><?php echo $row[4] ?></td>
                                     <td><?php echo $row[5] ?></td>
                                     <td><img src="uerimages/<?php echo $row[6] ?>" width="100" height="40" alt=""></td>
-                                    
-
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm">Edit</a>
                                         <a href="#" class="btn btn-info btn-sm">Detail</a>
@@ -58,7 +54,6 @@
                                     </td>
                                 </tr>
                                 <?php } ?>
-                                
                             </tbody>
                         </table>
                     </div>

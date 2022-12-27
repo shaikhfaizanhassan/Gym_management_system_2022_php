@@ -1,3 +1,32 @@
+<script>
+    function item1(a)
+    {
+        var xml = new XMLHttpRequest();
+			xml.onreadystatechange=function(){
+				if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById('itemrate').innerHTML = this.responseText;
+				}
+				};
+				xml.open("GET","ajax.php?class="+a,true);
+				xml.send();
+                
+            }
+            
+            function item1(a)
+    {
+       
+                document.getElementById('itemrate').value = a;
+            }
+
+
+   
+			
+	
+</script>
+<?php 
+    include('connection.php');
+?>
 <br>
                 <div class="col-md-12" >
                         <div class="ibox" >
@@ -14,8 +43,14 @@
                                         <label class="col-sm-2 col-form-label">Select Table</label>
                                         <div class="col-sm-4">
                                         <select name="" id="" class="form-control">
-                                                <option value="Active">Active</option>
-                                                <option value="Non-Active">Non-Active</option>
+                                            <?php
+                                              $query = mysqli_query($con,"select * from table_tb");
+                                              while($row = mysqli_fetch_array($query))
+                                              {
+                                              ?>
+                                              <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
+                                              <?php } ?>
+                                          
                                            </select>
                                         </div>
                                         <div class="col-sm-2">
@@ -30,9 +65,15 @@
                                        
                                         <div class="col-sm-4">
                                         <label for="">Select Product</label>
-                                        <select name="" id="" class="form-control">
-                                                <option value="Active">Active</option>
-                                                <option value="Non-Active">Non-Active</option>
+                                        <select name="" id="pd1" onchange="item1(this.value)" class="form-control">
+                                                <option value="" hidden="true">Select Product</option>
+                                        <?php
+                                              $query = mysqli_query($con,"select * from product");
+                                              while($row = mysqli_fetch_array($query))
+                                              {
+                                              ?>
+                                              <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
+                                              <?php } ?>
                                            </select>
                                         </div>
                                         <div class="col-sm-2">
@@ -41,7 +82,7 @@
                                         </div>
                                         <div class="col-sm-2">
                                         <label for="">Rate</label>
-                                        <input class="form-control" type="text" readonly placeholder="" >
+                                        <input class="form-control" id="itemrate" type="text" readonly placeholder="" >
                                         </div>
                                         <div class="col-sm-2">
                                         <label for="">Amount</label>
