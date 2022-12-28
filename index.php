@@ -12,7 +12,7 @@
     <link href="./assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="./assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-    <!-- THEME STYLES-->  
+    <!-- THEME STYLES-->
 
     <link href="assets/css/main.min.css" rel="stylesheet" />
     <link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -22,6 +22,7 @@
     <!-- PAGE LEVEL STYLES-->
 </head>
 <div class="box"></div>
+
 <body class="fixed-navbar">
     <div class="page-wrapper">
         <!-- START HEADER-->
@@ -52,8 +53,8 @@
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
-                   
-                  
+
+
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="./assets/img/admin-avatar.png" />
@@ -80,7 +81,8 @@
                         <img src="./assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong">Admin</div><small>Administrator</small></div>
+                        <div class="font-strong">Admin</div><small>Administrator</small>
+                    </div>
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
@@ -88,7 +90,7 @@
                             <span class="nav-label">Dashboard</span>
                         </a>
                     </li>
-                   
+
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">Category</span><i class="fa fa-angle-left arrow"></i></a>
@@ -99,11 +101,11 @@
                             <li>
                                 <a href="index.php?viewCategory">View Category</a>
                             </li>
-                        
+
                         </ul>
                     </li>
 
-                  
+
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
@@ -115,11 +117,11 @@
                             <li>
                                 <a href="index.php?viewTable">View Table</a>
                             </li>
-                        
+
                         </ul>
                     </li>
 
-              
+
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
@@ -131,10 +133,10 @@
                             <li>
                                 <a href="index.php?viewProduct">View Product</a>
                             </li>
-                        
+
                         </ul>
                     </li>
-                    
+
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
@@ -146,11 +148,11 @@
                             <li>
                                 <a href="index.php?ViewUser">View Staff</a>
                             </li>
-                        
+
                         </ul>
                     </li>
 
-                    
+
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
@@ -159,11 +161,16 @@
                             <li>
                                 <a href="index.php?AddOrder">Add Order</a>
                             </li>
+                            <li>
+                                <a href="index.php?AddOrderImage">Order Image</a>
+                            </li>
 
-                        
+
+
+
                         </ul>
                     </li>
-                    
+
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
@@ -192,7 +199,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
 
                 </ul>
             </div>
@@ -201,56 +208,31 @@
         <div class="content-wrapper">
 
             <!-- START PAGE CONTENT-->
-                <?php  
-                    if(isset($_GET['addCategory']))
-                    {
-                        include 'addCategory.php';
-                    }
-                    else if(isset($_GET['viewCategory']))
-                    {
-                        include 'viewCategory.php';
-                    }
-                    else if(isset($_GET['addTable']))
-                    {
-                        include 'addTable.php';
-                    }
-                    else if(isset($_GET['viewTable']))
-                    {
-                        include 'viewTable.php';
-                    }
-                    else if(isset($_GET['AddProduct']))
-                    {
-                        include 'AddProduct.php';
-                    }
-                    else if(isset($_GET['viewProduct']))
-                    {
-                        include 'viewProduct.php';
-                    }
-
-                    else if(isset($_GET['addstaf']))
-                    {
-                        include 'addstaf.php';
-                    }
-
-                    else if(isset($_GET['ViewUser']))
-                    {
-                        include 'ViewUser.php';
-                    }
-                    else if(isset($_GET['AddOrder']))
-                    {
-                        include 'AddOrder.php';
-                    }
-
-                    else if(isset($_GET['ViewReport']))
-                    {
-                        include 'ViewReport.php';
-                    }
-
-
-                    
-                    
-                    else{
-                        echo ' <div class="page-content fade-in-up">
+            <?php
+            if (isset($_GET['addCategory'])) {
+                include 'addCategory.php';
+            } else if (isset($_GET['viewCategory'])) {
+                include 'viewCategory.php';
+            } else if (isset($_GET['addTable'])) {
+                include 'addTable.php';
+            } else if (isset($_GET['viewTable'])) {
+                include 'viewTable.php';
+            } else if (isset($_GET['AddProduct'])) {
+                include 'AddProduct.php';
+            } else if (isset($_GET['viewProduct'])) {
+                include 'viewProduct.php';
+            } else if (isset($_GET['addstaf'])) {
+                include 'addstaf.php';
+            } else if (isset($_GET['ViewUser'])) {
+                include 'ViewUser.php';
+            } else if (isset($_GET['AddOrder'])) {
+                include 'AddOrder.php';
+            } else if (isset($_GET['ViewReport'])) {
+                include 'ViewReport.php';
+            } else if (isset($_GET['AddOrderImage'])) {
+                include 'AddOrderImage.php';
+            } else {
+                echo ' <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-success color-white widget-stat">
@@ -290,10 +272,10 @@
                     </div>
                 </div>
             </div>';
-                    }
-                ?>
+            }
+            ?>
             <!-- END PAGE CONTENT-->
-          
+
         </div>
     </div>
     <script src="./assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -312,9 +294,10 @@
     <script src="./assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
-        $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
     </script>
 </body>
+
 </html>
