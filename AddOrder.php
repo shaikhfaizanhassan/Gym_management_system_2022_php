@@ -42,25 +42,26 @@ include('connection.php');
                             <option value="" hidden="true">Select Product</option>
                             <?php
                             $query = mysqli_query($con, "select * from product");
-                           foreach($query as $row) {
-                           echo "<option value='$row[pid]'>$row[Name]</option>";
-                                                     
-                           }?>
-                            
+                            foreach ($query as $row) {
+                                echo "<option value='$row[pid]'>$row[Name]</option>";
+                            } ?>
+
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <label for="">Qty</label>
-                        <input class="form-control" value="1" type="text" placeholder="">
+                        <input  id="qty1" value="1" type="text" placeholder="">
                     </div>
                     <div class="col-sm-2">
                         <label for="">Rate</label>
-                        <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="showprice"></p>
+                        <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
+                        
+                        
                     </div>
                     <p id="showprice"></p>
                     <div class="col-sm-2">
                         <label for="">Amount</label>
-                        <input class="form-control" type="text" readonly placeholder="">
+                        <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="subtotal"></p>
                     </div>
                     <div class="col-sm-2" style="font-weight: bolder;">
                         <label for="">Action</label>
@@ -70,21 +71,44 @@ include('connection.php');
 
                     </div>
                     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-   
+
                     <script>
                         $(document).ready(function() {
-                            $("#proNAme").on("change",function(){
+                            $("#proNAme").on("change", function() {
                                 var pid = $("#proNAme").val();
                                 $.ajax({
-                                    url:"fetchproprice.php",
-                                    type:"post",
-                                    data:{pro_id:pid},
-                                    success:function(mydata){
-                                        $("#showprice").html(mydata);
+                                    url: "fetchproprice.php",
+                                    type: "post",
+                                    data: {
+                                        pro_id: pid
+                                    },
+                                    success: function(mydata) {
+                                        $("#itemprice").html(mydata);
+                                        $("#subtotal").html(mydata);
+                                        var eprice = $("#subtotal").html(mydata);
+                                        var gt = (eprice);
+
+                                        $("#grosstotal").val(eprice);
+                                
                                     }
                                 });
                             });
+
+                            $("#qty1").keyup(function(){
+                                //alert("done");
+                                var total = 0;
+                                var x =  $("#qty1").val();
+                                var y = $("#itemprice").text();
+                                var total = parseInt(x) * parseInt(y);
+                                $("#subtotal").html(total);
+                               
+                                
+                                
+                                
+                            });
+                            
                         });
+                        
                     </script>
 
 
@@ -97,7 +121,7 @@ include('connection.php');
                     <label class="col-sm-2 col-form-label">Gross Amount</label>
 
                     <div class="col-sm-4">
-                        <input class="form-control" readonly value="" type="text" placeholder="">
+                        <input class="form-control" id="grosstotal" type="text" >
                     </div>
 
 
