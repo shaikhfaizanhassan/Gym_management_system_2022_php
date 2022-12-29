@@ -50,7 +50,7 @@ include('connection.php');
                     </div>
                     <div class="col-sm-2">
                         <label for="">Qty</label>
-                        <input  id="qty1" value="1" type="text" placeholder="">
+                        <input  id="qty1" value="1" type="number" placeholder="">
                     </div>
                     <div class="col-sm-2">
                         <label for="">Rate</label>
@@ -83,28 +83,27 @@ include('connection.php');
                                         pro_id: pid
                                     },
                                     success: function(mydata) {
+                                    
                                         $("#itemprice").html(mydata);
                                         $("#subtotal").html(mydata);
                                         var eprice = $("#subtotal").html(mydata);
-                                        var gt = (eprice);
-
-                                        $("#grosstotal").val(eprice);
-                                
+                                        $("#grosstotal").val(1 * Number($("#itemprice").text()));
                                     }
                                 });
                             });
-
-                            $("#qty1").keyup(function(){
+                            
+                            
+                            $("#qty1").change(function(){
                                 //alert("done");
                                 var total = 0;
                                 var x =  $("#qty1").val();
                                 var y = $("#itemprice").text();
                                 var total = parseInt(x) * parseInt(y);
                                 $("#subtotal").html(total);
-                               
-                                
-                                
-                                
+                                $("#grosstotal").val(total);
+
+                            
+                            
                             });
                             
                         });
