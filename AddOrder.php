@@ -34,42 +34,51 @@ include('connection.php');
                     </div>
 
                 </div>
-                <div class="form-group row" style="font-weight: bolder;">
+                <div class="form-group row" style="font-weight: bolder;" id="formfeld">
 
-                    <div class="col-sm-4">
-                        <label for="">Select Product</label>
-                        <select name="" id="proNAme" class="form-control">
-                            <option value="" hidden="true">Select Product</option>
-                            <?php
-                            $query = mysqli_query($con, "select * from product");
-                            foreach ($query as $row) {
-                                echo "<option value='$row[pid]'>$row[Name]</option>";
-                            } ?>
+                    <table class="table" id="inputfeild">
+                      
+                            <tr>
+                                <th>Name</th>
+                                <th>Qty</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                       
+                      
+                            <tr>
+                                <td>
+                                    <select name="" id="proNAme" class="form-control">
+                                        <option value="" hidden="true">Select Product</option>
+                                        <?php
+                                        $query = mysqli_query($con, "select * from product");
+                                        foreach ($query as $row) {
+                                            echo "<option value='$row[pid]'>$row[Name]</option>";
+                                        } ?>
 
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <label for="">Qty</label>
-                        <input  id="qty1" value="1" type="text" placeholder="">
-                    </div>
-                    <div class="col-sm-2">
-                        <label for="">Rate</label>
-                        <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
-                        
-                        
-                    </div>
-                    <p id="showprice"></p>
-                    <div class="col-sm-2">
-                        <label for="">Amount</label>
-                        <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="subtotal"></p>
-                    </div>
-                    <div class="col-sm-2" style="font-weight: bolder;">
-                        <label for="">Action</label>
-                        <br>
-                        <a href="" class="btn btn-success sm-small">+</a>
-                        <a href="" class="btn btn-danger sm-small">X</a>
+                                    </select>
+                                </td>
+                                <td><input  style="width: 50px;" id="qty1" value="1" type="text"></td>
+                                <td>
+                                    <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
+                                </td>
+                                <td>
+                                    <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="subtotal"></p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-success sm-small">+</a>
+                                    <a href="" class="btn btn-danger sm-small">X</a>
+                                </td>
 
-                    </div>
+                            </tr>
+                       
+                    </table>
+
+
+
+
+
                     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
                     <script>
@@ -85,30 +94,22 @@ include('connection.php');
                                     success: function(mydata) {
                                         $("#itemprice").html(mydata);
                                         $("#subtotal").html(mydata);
-                                        var eprice = $("#subtotal").html(mydata);
-                                        var gt = (eprice);
 
-                                        $("#grosstotal").val(eprice);
-                                
                                     }
                                 });
                             });
 
-                            $("#qty1").keyup(function(){
+                            $("#qty1").keyup(function() {
                                 //alert("done");
                                 var total = 0;
-                                var x =  $("#qty1").val();
+                                var x = $("#qty1").val();
                                 var y = $("#itemprice").text();
                                 var total = parseInt(x) * parseInt(y);
                                 $("#subtotal").html(total);
-                               
-                                
-                                
-                                
+                                $("#grosstotal").val(total);
                             });
-                            
+
                         });
-                        
                     </script>
 
 
@@ -121,7 +122,7 @@ include('connection.php');
                     <label class="col-sm-2 col-form-label">Gross Amount</label>
 
                     <div class="col-sm-4">
-                        <input class="form-control" id="grosstotal" type="text" >
+                        <input class="form-control" id="grosstotal" type="text">
                     </div>
 
 
