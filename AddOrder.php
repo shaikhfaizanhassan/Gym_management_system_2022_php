@@ -59,7 +59,7 @@ include('connection.php');
 
                                     </select>
                                 </td>
-                                <td><input  style="width: 50px;" id="qty1" value="1" type="text"></td>
+                                <td><input   id="qty1" value="1" type="text"></td>
                                 <td>
                                     <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
                                 </td>
