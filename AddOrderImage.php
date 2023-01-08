@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <?php
+session_start();
 include('connection.php');
 if (isset($_POST["add_to_cart"])) {
     if (isset($_SESSION["shopping_cart"])) {
@@ -25,7 +26,7 @@ if (isset($_POST["add_to_cart"])) {
             $_SESSION["shopping_cart"][$count] = $item_array;
         } else {
             echo '<script>alert("Item Already in Use")</script>';
-            echo '<script>window.location="http://localhost/RestaurentManagementSystemPHP/Gym_management_system_2022_php/index.php?AddOrderImage"</script>';
+            echo '<script>window.location="http://localhost/RestaurentManagementSystemPHP/Gym_management_system_2022_php/AddOrderImage.php"</script>';
         }
     } else {
         $item_array = array(
@@ -40,6 +41,7 @@ if (isset($_POST["add_to_cart"])) {
 ?>
 <br>
 <style>
+   
     .pbox {
         width: 100%;
         height: auto;
@@ -108,19 +110,43 @@ if (isset($_POST["add_to_cart"])) {
                                     <input type="hidden" name="hiddenprice" value="<?php echo $r[2] ?>" />
                                     <br>
                                     <br>
-                                    <input type="submit" value="Add To Cart" name="add_to_cart" class="btn btn-danger">
+                                    <input type="submit" value="Add To Cart" name="add_to_cart" class="btn btn-success">
                                 </div>
                             </form>
 
                         </div>
-                    <?php } } ?>
+                    <?php 
+                    } 
+                } ?>
                     
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-6">
+    <?php 
+        if(isset($_GET["action"]))
+        {
+            if($_GET["action"]=="delete")
+            {
+                foreach ($_SESSION["shopping_cart"] as $keys => $values) {
+                    if($values["item_id"]==$_GET["id"])
+                    {
+                        unset($_SESSION["shopping_cart"][$keys]);
+                        
+                        echo '<script>window.location="http://localhost/RestaurentManagementSystemPHP/Gym_management_system_2022_php/AddOrderImage.php"</script>';
+        
+                    }
+                    else
+                    {
+                        echo "No Data";
+                    }
+                }
+            }
+        }
+    ?>
+    
+    <div class="col-lg-6" >
         <div class="ibox">
             <div class="ibox-body">
                 <div class="ibox-head">
@@ -130,11 +156,11 @@ if (isset($_POST["add_to_cart"])) {
                     </div>
                 </div>
                 <div class="row">
-
-                    <div class="col-lg-6">
+             
+                    <div class="col-lg-12">
                         <table class="table" style="width: 100%;">
                             <tr>
-                                <th>Name</th>
+                                <th >Name</th>
                                 <th>Qty</th>
                                 <th>Price</th>
                                 <th>Total</th>
@@ -150,23 +176,36 @@ if (isset($_POST["add_to_cart"])) {
                                 <td><?php echo $values["item_quantity"] ?></td>
                                 <td><?php echo $values["item_price"] ?></td>
                                 <td><?php echo number_format($values["item_quantity"] * $values["item_price"],2); ?></td>
-                                <td><a href="#?action=delete&id=<?php echo $values["item_id"] ?>">Remove</a></td>
+                                <td><a class="btn btn-danger btn-sm" href="AddOrderImage.php?action=delete&id=<?php echo $values["item_id"] ?>">Remove</a></td>
 
                             </tr> 
                             <?php 
                                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
                             ?>
-                            <tr>
-                                <td>Total</td>
-                                <td><?php echo number_format($total,2); ?></td>
+                          
+                            <?php }  ?>
+                              <tr>
+                                <td colspan="2"></td>
+                                <td style="font-weight: bolder;">Total</td>
+                                <td style="font-weight: bolder; color: red;"><?php echo number_format($total,2); ?></td>
                             </tr>
-
                             <?php }
-                            } ?>
+                            
+                                else
+                                {
+
+                                    ?>
+                            
+                            <tr>
+                                <td><h1 style="text-align: center;">No Data</h1></td>
+                            </tr>
+                            <?php } ?>
+
+                           
                         </table>
                     </div>
 
-                </div>
+            
             </div>
         </div>
     </div>
