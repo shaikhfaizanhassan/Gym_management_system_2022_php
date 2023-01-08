@@ -148,12 +148,8 @@
                             <li>
                                 <a href="index.php?ViewUser">View Staff</a>
                             </li>
-
                         </ul>
                     </li>
-
-
-
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">Order</span><i class="fa fa-angle-left arrow"></i></a>
@@ -162,7 +158,7 @@
                                 <a href="index.php?AddOrder">Add Order</a>
                             </li>
                             <li>
-                                <a href="index.php?AddOrderImage">Order Image</a>
+                                <a href="AddOrderImage.php">Order Image</a>
                             </li>
 
 

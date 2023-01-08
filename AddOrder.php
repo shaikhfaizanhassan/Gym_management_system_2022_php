@@ -37,42 +37,42 @@ include('connection.php');
                 <div class="form-group row" style="font-weight: bolder;" id="formfeld">
 
                     <table class="table" id="inputfeild">
-                      
-                            <tr>
-                                <th>Name</th>
-                                <th>Qty</th>
-                                <th>Rate</th>
-                                <th>Amount</th>
-                                <th>Action</th>
-                            </tr>
-                       
-                      
-                            <tr>
-                                <td>
-                                    <select name="" id="proNAme" class="form-control">
-                                        <option value="" hidden="true">Select Product</option>
-                                        <?php
-                                        $query = mysqli_query($con, "select * from product");
-                                        foreach ($query as $row) {
-                                            echo "<option value='$row[pid]'>$row[Name]</option>";
-                                        } ?>
 
-                                    </select>
-                                </td>
-                                <td><input   id="qty1" value="1" type="text"></td>
-                                <td>
-                                    <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
-                                </td>
-                                <td>
-                                    <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="subtotal"></p>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-success sm-small">+</a>
-                                    <a href="" class="btn btn-danger sm-small">X</a>
-                                </td>
+                        <tr>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
 
-                            </tr>
-                       
+
+                        <tr>
+                            <td>
+                                <select name="" id="proNAme" class="form-control">
+                                    <option value="" hidden="true">Select Product</option>
+                                    <?php
+                                    $query = mysqli_query($con, "select * from product");
+                                    foreach ($query as $row) {
+                                        echo "<option value='$row[pid]'>$row[Name]</option>";
+                                    } ?>
+
+                                </select>
+                            </td>
+                            <td><input id="qty1" value="1" type="text"></td>
+                            <td>
+                                <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="itemprice"></p>
+                            </td>
+                            <td>
+                                <p style="border: 1px solid; color:red; font-size: 18px; height: 32px; text-align: center; line-height: 32px;" id="subtotal"></p>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-success sm-small">+</a>
+                                <a href="" class="btn btn-danger sm-small">X</a>
+                            </td>
+
+                        </tr>
+
                     </table>
 
 
